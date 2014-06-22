@@ -655,8 +655,12 @@ def save(argv):
 def load(argv):
     global gamestate
     l = None
-    with open("savegame", "rb") as f:
-        l = pickle.load(f)
+    try:
+        with open("savegame", "rb") as f:
+            l = pickle.load(f)
+    except IOError:
+        output.scr.addstr("Couldn't load savegame.")
+        return
     gamestate = l[0]
     for comm in l[1]:
         if comm == "list":
