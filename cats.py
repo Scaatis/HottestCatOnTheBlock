@@ -28,7 +28,7 @@ class InSec(Host):
     def __init__(self):
         Host.__init__(self, "InSec", "65.32.2.133", ["sensenet.log", "a3f15cb.txt", "emplrec0451.log"], ["clientProtector", "sec0451", "SysAdmin"])
         self.state = 1
-    
+
     def delete(self, f):
         if f == "sensenet.log":
             self.state = 2
@@ -47,12 +47,12 @@ class InSec(Host):
             queueconv(conversations["sec1"])
             return True
         return Host.delete(self, f)
-    
+
     def copy(self, f):
         if f == "a3f15cb.txt":
             return True
         return Host.copy(self, f)
-    
+
     def fileinfo(self, f):
         if f == "emplrec0451.log":
             output.openline()
@@ -60,12 +60,12 @@ class InSec(Host):
             if self.state == 2:
                 self.state = 3
         return Host.fileinfo(self,f)
-    
+
     def filelist(self):
         l = self.files[:]
         l.remove("emplrec0451.log")
         return l
-    
+
     def disconnect(self):
         if self.state == 2 or self.state == 3:
             error("User is affected by linklock. May not disconnect")
@@ -77,7 +77,7 @@ class InSec(Host):
             gamestate["localhost"].state = 8
             return True
         return Host.disconnect(self)
-    
+
     def message(self, u):
         if self.state == 2 and u == "sec0451":
             queueconv(conversations["sec2"])
@@ -87,10 +87,10 @@ class InSec(Host):
             self.state = 4
             return None
         return "Yeah, that sounds extremely stupid"
-    
+
     def hostinfo(self):
         return "InSec digital Security: With us, your company can feel safe"
-    
+
     def connect(self):
         scr = output.scr
         output.openline()
@@ -111,10 +111,10 @@ class CogDis(Host):
     def __init__(self):
         Host.__init__(self, "CogDis", "112.43.67.2", [], ["greenwitchMean", "v0rt3x", "fortran4evr", "danielCowell", "c4s3"])
         self.state = 0
-    
+
     def hostinfo(self):
         return "This is the Cognitive Dissidents. Do not distribute this address to people you don't know"
-    
+
     def connect(self):
         scr = output.scr
         global gamestate
@@ -128,7 +128,7 @@ class CogDis(Host):
         scr.addstr("Cognitive ", output.yellow | curses.A_BOLD)
         scr.addstr("Dissidents", output.red | curses.A_BOLD)
         return "fall1ble"
-    
+
     def message(self, u):
         if self.state == 0 and u == "v0rt3x":
             self.state = 1
@@ -137,7 +137,7 @@ class CogDis(Host):
             gamestate["localhost"].state = 2
             return None
         return Host.message(self, u)
-    
+
     def disconnect(self):
         if self.state == 1:
             self.state = 2
@@ -146,12 +146,12 @@ class CogDis(Host):
             queueconv(conversations["vortex2"])
             return True
         return Host.disconnect(self)
-    
+
     def userlist(self):
         output.openline()
         output.scr.addstr("Listing public users only:")
         return Host.userlist(self)
-        
+
 
 class SenseNet(Host):
     def __init__(self):
@@ -159,24 +159,24 @@ class SenseNet(Host):
             ["access.log", "d4eff2b.txt", "forkbomb.exe", "firstQuarter.doc"], ["WatchDogDaemon", "FenceBuilder", "SysAdmin"])
         self.state = 0
         self.added = False
-    
+
     def hostinfo(self):
         return "SenseNet global information and entertainment network"
-    
+
     def userinfo(self, u):
         if u in ["WatchDogDaemon", "FenceBuilder"] and not self.added:
             global gamestate
             gamestate["hosts"].append(InSec())
             self.added = True
         return Host.userinfo(self, u)
-            
+
     def connect(self):
         if self.state == 0:
             self.state = 1
             queueconv(conversations["onyxsensenet1"])
             unlockcommand("list", lst)
         return "guest"
-    
+
     def disconnect(self):
         if self.state == 4 and "onyx.lock" not in self.files:
             self.state = 5
@@ -185,10 +185,10 @@ class SenseNet(Host):
             gamestate["hosts"].append(CogDis())
             unlockcommand("message")
         return True
-    
+
     def message(self, u):
         return "That is a FANTASTICALLY bad idea."
-    
+
     def filelist(self):
         if self.state == 1:
             self.state = 2
@@ -202,7 +202,7 @@ class SenseNet(Host):
             self.state = 4
             self.addfile("onyx.lock")
         return Host.filelist(self)
-    
+
     def delete(self, f):
         if f == "onyx.lock":
             self.removefile("access.log")
@@ -212,7 +212,7 @@ class SenseNet(Host):
             return True
         else:
             return Host.delete(self, f)
-    
+
     def copy(self, f):
         return True
 
@@ -220,12 +220,12 @@ class Localhost(Host):
     def __init__(self):
         Host.__init__(self, "localhost", "127.0.0.1", [], [])
         self.state = 0
-    
+
     def start(self):
         global conversations
         conversations["onyxstart1"].run() #enable for release
         unlockcommand("info")
-    
+
     def hostinfo(self):
         if self.state == 0:
             self.state = 1
@@ -234,7 +234,7 @@ class Localhost(Host):
             global gamestate
             gamestate["hosts"].append(SenseNet())
         return "Sony Cyberspace 2: 166MHz, 6MB Main Memory"
-    
+
     def message(self, u):
         if u == "v0rt3x" and self.state == 3:
             self.state = 4
@@ -306,21 +306,21 @@ def deny(argv, text):
         scr.delch(sy, sx - i - 1)
         scr.refresh()
         curses.napms(10)
-    
+
     scr.move(sy, sx - len(t))
     for c in text:
         scr.addch(c)
         scr.refresh()
         curses.napms(30)
-    
+
     curses.napms(600)
     sy, sx = scr.getyx()
-    
+
     for i in range(len(text)):
         scr.delch(sy, sx - i - 1)
         scr.refresh()
         curses.napms(10)
-    
+
     output.removelastline()
 
 def error(text):
@@ -392,7 +392,7 @@ def copy(argv):
     elif argv[1] not in gamestate["host"].files:
         error("File not found")
         return
-    
+
     r = gamestate["host"].copy(argv[1])
     if r == True:
         gamestate["localhost"].addfile(argv[1])
@@ -465,7 +465,7 @@ def lst(argv):
 def exit(argv):
     global gamestate, gameover
     gameover = True
-    
+
 def help(argv):
     global commands
     scr = output.scr
@@ -686,7 +686,7 @@ if __name__ == "__main__":
             prompt()
             line = output.getline()
             argv = line.split(" ")
-            if argv[0] in commands:           
+            if argv[0] in commands:
                 commands[argv[0]](argv)
             elif argv[0] in ["fuck", "shit", "asshole"]:
                 deny(argv, "Ain't no proper language for a lady!")
@@ -696,9 +696,9 @@ if __name__ == "__main__":
                 output.openline()
                 queued.run()
                 queued = None
-            
+
     except KeyboardInterrupt:
         pass
     output.uninit()
-    
+
 

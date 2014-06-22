@@ -7,7 +7,7 @@ class Conversation:
     def __init__(self, data):
         self.data = data
         # Data is Tuples: (Sender/None, message)
-    
+
     def run(self):
         curses.cbreak()
         curses.noecho()
@@ -32,14 +32,14 @@ class Conversation:
                 output.scr.refresh()
                 last = None
         output.removelastline()
-    
+
     def prompt(self):
         scr = output.scr
         scr.addstr("Type ", output.white)
         scr.addstr("message", output.yellow | curses.A_BOLD)
         scr.addstr("> ", output.white)
-        
-    
+
+
     def send(self, msg):
         curses.curs_set(1)
         scr = output.scr
@@ -59,7 +59,7 @@ class Conversation:
         scr.addstr(msg, output.white)
         scr.refresh()
         curses.curs_set(0)
-    
+
     def receive(self, sender, msg):
         scr = output.scr
         output.messageline()
