@@ -1,6 +1,6 @@
 #!/usr/bin/env/python
 
-import curses, pickle, random, sys
+import curses, pickle, random, sys, traceback
 
 import output
 from conversation import Conversation
@@ -325,9 +325,10 @@ def deny(argv, text):
 
 def error(text):
     scr = output.scr
-    output.openline()
-    scr.addstr("Error: ", output.red | curses.A_BOLD)
-    scr.addstr(text)
+    for line in text.split('\n'):
+        output.openline()
+        scr.addstr("Error: ", output.red | curses.A_BOLD)
+        scr.addstr(line)
 
 def info(argv):
     global gamestate
@@ -686,19 +687,22 @@ if __name__ == "__main__":
         unlockcommand("save")
         unlockcommand("load")
         while not gameover:
-            prompt()
-            line = output.getline()
-            argv = line.split(" ")
-            if argv[0] in commands:
-                commands[argv[0]](argv)
-            elif argv[0] in ["fuck", "shit", "asshole"]:
-                deny(argv, "Ain't no proper language for a lady!")
-            elif argv[0] != "":
-                error("Unknown command %s" % argv[0])
-            if queued != None:
-                output.openline()
-                queued.run()
-                queued = None
+            try:
+                prompt()
+                line = output.getline()
+                argv = line.split(" ")
+                if argv[0] in commands:
+                    commands[argv[0]](argv)
+                elif argv[0] in ["fuck", "shit", "asshole"]:
+                    deny(argv, "Ain't no proper language for a lady!")
+                elif argv[0] != "":
+                    error("Unknown command %s" % argv[0])
+                if queued != None:
+                    output.openline()
+                    queued.run()
+                    queued = None
+            except Exception as e:
+                error("%s.\nDon't do that." % traceback.format_exc(e))
 
     except KeyboardInterrupt:
         pass
