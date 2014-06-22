@@ -92,7 +92,7 @@ def uninit():
     scr.keypad(0)
     curs_set(1)
     endwin()
-    
+
 lastinput = ""
 
 def getline(ch = None):
