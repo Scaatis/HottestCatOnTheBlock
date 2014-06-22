@@ -1,0 +1,151 @@
+#onyxstart1
+Onyx:Check it out, I got da new sw33t d3ck
+Onyx:16Megs of RAM, feels good man
+:Daaaang, how do I know how much I got?
+Onyx:info host
+
+#onyxstart2
+Onyx:I gotta take this baby for her maiden voyage
+Onyx:Gonna stick it to the meanies - link it up to SenseNet
+:I wanna come after you, watch the fireworks
+Onyx:Come along, then.
+:How do I do that
+Onyx:You gotta lot to learn. Same way you connect to CogDis of course:
+Onyx:connect <host>. In this case, SenseNet
+
+#onyxsensenet1
+:Alright, I'm in, go go go
+Onyx:Oh yeah, you can say that again! Watch the files with "list files"
+Onyx:See those reports?
+
+#onyxsensenet2
+:Yeah, I see 'em: firstQuarter.doc, what about them?
+Onyx:Check again!
+Onyx:Sw33t J3sus this thing goes like there's no stopping it!
+
+#onyxsensenet3
+:Somebody probs spent hours writing those! You can just delete them?
+Onyx:I can and I did!
+:...
+Onyx:Oh crap.
+:what now?
+Onyx:They found out about me! Got me in a sandbox, I can't even bail out!
+Onyx:You gotta get me out! Delete the lock file they got on me!
+:I dunno, seems to me like you deserve this.
+Onyx:Alright, alright I'm sorry!
+Onyx:I'm not gonna be an ass to the poor w4g3sl4v3s again, I promise! Just delete the file!
+:Heh, I just love to hear you grovel like that :)
+
+#onyxsensenet4
+Onyx:That did it.
+Onyx:Right, I'm blasting the logs and then we ditch this joint. d/c with disconnect
+
+#onyxsensenet5
+Onyx:Whadda ya know, these megacorps gotta have better security than I thought
+Onyx:I mean it takes some mean shit to stop this new baby
+Anonymous:That Onyx kid got it backwards.
+Anonymous:Ain't the hardware what makes you into the hottest cat on the block
+Anonymous:It's the headware. Got lucky today, but we're watching you. Both of you.
+Onyx:...
+Onyx:You got that too?
+:Yeah. What do we do now?
+Onyx:Oh sh1t oh sh1t oh sh1t
+Onyx:Ok ok ok I got this
+Onyx:You go and find v0rt3x at cogdis. See if he's there with list users
+Onyx:message him, he'll know what to do
+Onyx:(you do that with "message <user>", you got this figured out, right?)
+Onyx:I'm gonna
+Onyx:I'm gonna
+System:Onyx has disconnected
+
+#vortex1
+:Hey.
+v0rt3x:hi
+:we got some trouble. Onyx got a new deck today.
+:took it out to SenseNet and got ICE'd
+:They got us traced and now they're "watching"
+v0rt3x:And the first thing you do is come here?!
+v0rt3x:d/c now! ttyl
+
+#vortex2
+v0rt3x:What is it you want from me?
+:Onyx said to look for you then jacked out
+v0rt3x:That hothead. That way you just give them more time to physloc you.
+v0rt3x:You gotta get rid of the logs
+:Onyx already did that
+v0rt3x:SenseNet don't do their own ICE. It'll come from somewhere up the corporate chain
+v0rt3x:First we gotta know where from.
+v0rt3x:You better get back there and find out
+:How do I do that?
+v0rt3x:Am I your daddy? Use help if you're stuck
+
+#vortex3
+:This is what I got: SenseNet's ICE is by a corp called InSec
+:but I can't get in there cuz of password wall
+v0rt3x:Well the SenseNet guys gotta have an account there
+v0rt3x:I'll betcha they have it saved somewhere on that server of theirs
+v0rt3x:copy the data over and we'll have a look at it
+v0rt3x:message me when you got it
+
+#vortex4
+:I think I got the file, but it's just gibberish
+v0rt3x:I didn't expect it to be plaintext. I'm sending you a decrypter
+System:File received: decrypt.exe
+v0rt3x:open it and you get the decrypt command
+v0rt3x:I should warn you:
+v0rt3x:I'm your friend'n'all but you shouldn't just go around and open all the files you find
+v0rt3x:There could be some mean sh1t in there
+v0rt3x:When you got the info, get over to inSec and get all that they have on you
+
+#systemname
+System:Loginname is now "fall1ble", was "admin"
+
+#sec1
+sec0451:How did you get this login information?
+:you think SenseNet can keep that shit secret?
+sec0451:So you were involved in the SenseNet incident?
+sec0451:My records indicate that the primary culprit is already in custody.
+:You mean Onyx?
+sec0451:That was his screen name, yes. I think we may want to keep you here
+sec0451:while we run the trace program
+
+#sec2
+:so...
+:how's that trace comin'
+sec0451:only a few nodes left...
+
+#vortex5
+:I got rid of the logfiles but they got me ICE'd over here at InSec
+:You got any more clever tools?
+v0rt3x:nothing I can do for you from here
+v0rt3x:but if I jack it up in there, I'm only getting myself in trouble, too
+v0rt3x:sorry kid, but you're on your own
+v0rt3x:but while you're in there, you might wanna look for hidden files
+v0rt3x:that shit's always useful
+v0rt3x:of course, only in case you get out
+
+#sec3
+:so...
+:how about that pr0n?
+sec0451:what?
+:you know, the stuff you've been watching
+:while you were SUPPOSED to be watching SenseNet
+:that's why you let a third rate cat like Onyx manage to burn those records
+sec0451:how...
+sec0451:how do you know that?
+:Who did you think you were messing with?
+sec0451:I admit, it would be bad if my superiors saw that...
+sec0451:but you'll be locked up in about ... uh ... 30 seconds
+:your superiors? You mean this guy SysAdmin?
+:yeah I already got it typed out:
+:"message SysAdmin"
+:wanna make me press enter?
+sec0451:...
+System: Linklock has been lifted
+System: sec0451 has disconnected
+
+#vortex6
+v0rt3x: You actually got out?!
+:That security b1tch didn't even know what hit him
+v0rt3x:dam g1rl, you really are the hottest cat on the block
+
