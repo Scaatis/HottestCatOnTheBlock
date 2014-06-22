@@ -1,6 +1,6 @@
 #!/usr/bin/env/python
 
-import curses, pickle, random
+import curses, pickle, random, sys
 
 import output
 from conversation import Conversation
@@ -670,6 +670,9 @@ def load(argv):
     scr.refresh()
 
 if __name__ == "__main__":
+    if len(sys.argv) > 1 and sys.argv[1] == '--inahurry':
+        Conversation.inahurry = True
+
     readconvs()
     readfiles()
     readusers()
